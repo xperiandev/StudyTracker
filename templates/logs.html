@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Logs
+{% endblock %}
+
+{% block main %}
+    <div class="intro">
+        <h1>Logs</h1>
+    </div>
+    <div class="log-block">
+        <div class="content">
+            <p>Logs are temporary</p>
+            <p>=======================</p>
+            {% for value in logText %}
+                <p>> {{ value }}</p>
+            {% endfor %}
+        </div>
+    </div>
+    <form action="/logs" method="post" class="form text-center">
+        <input autocomplete="off" autofocus type="text" class="log" name="log" placeholder="Text">
+        <input type="submit" class="btn btn-primary" name="submit" value="Log">
+        <!-- Icons from Lucide: https://lucide.dev -->
+        <button type="submit" class="btn btn-primary" name="clear" value="clear">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash-icon lucide-trash"><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+        </button>
+        <input type="submit" class="btn" name="export" value="Export">
+    </form>
+{% endblock %}
+

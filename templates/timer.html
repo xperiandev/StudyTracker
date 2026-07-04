@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Timer
+{% endblock %}
+
+{% block main %}
+    <div class="intro">
+        <h1>Timer</h1>
+    </div>
+    <div class="timer-form text-center">
+        <form class="form form-control" action="/timer" method="post">
+            <input type="number" name="hour" min="0" max="999" placeholder="hour" value="00">
+            <input type="number" name="minute" min="0" max="59" placeholder="minute" value="25">
+            <input type="number" name="second" min="0" max="59" placeholder="second" value="00">
+            <button type="submit" class="btn btn-primary" name="change">Change</button>
+            <!-- Icons from Lucide: https://lucide.dev -->
+            <button type="button" class="btn btn-primary" name="start" onclick="timerStart()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play-icon lucide-play"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></svg></button>
+            <button type="button" class="btn btn-primary" name="pause" onclick="isPaused = true;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pause-icon lucide-pause"><rect x="14" y="3" width="5" height="18" rx="1"/><rect x="5" y="3" width="5" height="18" rx="1"/></svg></button>
+        </form>
+    </div>
+    <div class="timer-container">
+        <div class="timer">
+            <span id="hour">{{ hour }}</span>
+            <span>:</span>
+            <span id="minute">{{ minute }}</span>
+            <span>:</span>
+            <span id="second">{{ second }}</span>
+        </div>
+    </div>
+    <script>
+        let isPaused = false;
+
+        function timerStart() {
+            isPaused = false;
+            let hour = document.getElementById("hour");
+            let minute = document.getElementById("minute");
+            let second = document.getElementById("second");
+
+            let hourInt = parseInt(hour.innerHTML);
+            let minuteInt = parseInt(minute.innerHTML);
+            let secondInt = parseInt(second.innerHTML);
+
+            let secondValue = (hourInt * 3600) + (minuteInt * 60) + secondInt
+            let timerID = setInterval(() => {
+                if (!isPaused) {
+                    secondValue--;
+
+                    if (secondValue <= 0) {
+                        secondValue = 0;
+                        clearInterval(timerID);
+                        hour.innerText = "00"
+                        minute.innerText = "00"
+                        second.innerText = "00"
+                        return;
+                    }
+
+                    let h = Math.floor(secondValue / 3600);
+                    let m = Math.floor((secondValue % 3600) / 60);
+                    let s = Math.floor(secondValue % 60);
+
+                    hour.innerText = h < 10 ? "0" + h : h;
+                    minute.innerText = m < 10 ? "0" + m : m;
+                    second.innerText = s < 10 ? "0" + s : s;
+                };
+            }, 1000);
+        };
+        </script>
+{% endblock %}

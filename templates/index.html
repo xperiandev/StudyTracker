@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block nav %}
+{% endblock %}
+
+{% block main %}
+    <div class="main-content">
+        <div class="container">
+            <p class="text">
+                Study Tracker
+            </p>
+            <!-- Icons from Lucide: https://lucide.dev -->
+            <a href="/dashboard"><button class="dash-btn btn btn-primary">Dashboard <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right-icon lucide-arrow-up-right"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></button></a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <footer class="index-footer fixed-bottom">
+        <p>A site by Xperian.</p>
+    </footer>
+{% endblock %}

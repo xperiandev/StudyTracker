@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    400: {{ reason }}
+{% endblock %}
+
+{% block main %}
+    <div class="apology">
+        <p>400: {{ message }}</p>
+    </div>
+{% endblock %}

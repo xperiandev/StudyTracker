@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Tasks
+{% endblock %}
+
+{% block main %}
+    <div class="intro">
+        <h1>Tasks</h1>
+    </div>
+    <div class="tasks-form">
+        <form action="/tasks" method="post" class="form form-control">
+            <input type="text" autocomplete="off" autofocus name="task" placeholder="Task">
+            <input type="submit" class="btn btn-primary" name="submit" value="Submit">
+        </form>
+    </div>
+    <div class="tables">
+        {% if tableData %}
+            <h3 class="text-center">Uncompleted Tasks:</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Done?</th>
+                        <th>Task</th>
+                        <th>Timestamp</th>
+                        <th class="text-end">Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for value in tableData %}
+                        <tr>
+                            <td>
+                                <form action="/tasks/check" method="post">
+                                    <input type="hidden" name="id" value="{{ value['id'] }}">
+                                    <input name="check" type="submit" value="&#10003;" class="btn check-button border">
+                                </form>
+                            </td>
+                            <td>{{ value["task"] }}</td>
+                            <td>{{ value["timestamp"] }}</td>
+                            <td class="text-end">
+                                <form action="/tasks/delete" method="post">
+                                    <input type="hidden" name="id" value="{{ value['id'] }}">
+                                    <input name="check" type="submit" value="&#128465;" class="btn check-button border">
+                                </form>
+                            </td>
+                        </tr>
+                    </form>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+        <br><br>
+        {% if tableCompleted %}
+            <h3 class="text-center">Completed tasks:</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Timestamp</th>
+                        <th class="text-end">Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for value in tableCompleted %}
+                        <tr>
+                            <td class="completed-tasks text-muted">{{ value["task"] }}</td>
+                            <td class="text-muted">{{ value["timestamp"] }}</td>
+                            <td class="text-end">
+                                <form action="/tasks/delete" method="post">
+                                    <input type="hidden" name="id" value="{{ value['id'] }}">
+                                    <input name="check" type="submit" value="&#128465;" class="btn check-button border">
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+{% endblock %}

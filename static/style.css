@@ -1,0 +1,199 @@
+:root {
+  --bs-font-sans-serif: "Poppins", system-ui, -apple-system, sans-serif;
+  --bs-body-font-family: var(--bs-font-sans-serif);
+}
+
+
+/* Home Page Style */
+
+.main-content {
+    /* Photo by Codioful on Unsplash https://unsplash.com/photos/blue-and-black-digital-wallpaper-bKESVqfxass -*/
+    background: url("/static/images/background.jpg");
+    min-height: 100vh;
+    width: 100vw;
+
+    .container {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .text {
+        text-align: center;
+        font-size: 10vh;
+        font-weight: light;
+    }
+}
+
+/* End Home Page Style */
+
+
+/* Apology Page Style*/
+
+.apology{
+    text-align: center;
+    font-size: xxx-large;
+}
+
+/* End Apology Page Style */
+
+
+/* Dashboard Page Style */
+
+.welcome {
+    text-align: center;
+    .welcome-text {
+        margin-top: 10px;
+        font-size: x-large;
+    }
+}
+
+.block-flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    min-height: 50vh;
+    width: 100vw;
+    .block {
+        background-color: var(--bs-secondary-bg);
+        border-radius: var(--bs-border-radius);
+        height: 35vh;
+        width: 35vh;
+    }
+}
+
+.tasks-text, .logs-text , .timer-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.link-block {
+    text-decoration: none;
+    color: var(--bs-primary-fg);
+    font-size: x-large;
+    margin: 5px;
+}
+
+/* End Dashboard Page Style */
+
+
+/* Tasks Page Style */
+
+.tasks-form {
+    text-align: center;
+}
+
+.completed-tasks {
+    text-decoration: line-through;
+}
+
+/* End Tasks Page Style */
+
+
+/* Log Page Style */
+
+.log-block {
+    background-color: var(--bs-tertiary-bg);
+    border-radius: 2vh;
+    margin: 0 auto;
+    padding: 1vh;
+    padding-bottom: 1.6vh;
+    width: 95vw;
+    height: 69vh;
+    font-family: monospace;
+    
+    .content {
+        height: 68vh;
+        overflow-y: auto;
+    }
+}
+
+.check-button:hover {
+    background-color: var(--bs-secondary-bg);
+    color: var(--bs-secondary-fg);
+}
+
+/* https://stackoverflow.com/a/48788333 */
+/* .huge-checkbox { */
+  /* Scaled Checkboxes */
+  /* transform: scale(var(--huge-scale)); */
+  /* -ms-transform: scale(var(--huge-scale)); IE */
+  /* -moz-transform: scale(var(--huge-scale)); FF */
+  /* -webkit-transform: scale(var(--huge-scale)); Safari and Chrome */
+  /* -o-transform: scale(var(--huge-scale)); Opera */
+  /* padding: 10px;
+} */
+
+.log {
+    padding: 1.5vh;
+    margin-top: 0.5vh;
+    margin-right: 0.5vh;
+    border-radius: var(--bs-border-radius);
+}
+
+/* End Log Page Style */
+
+/* Timer Page Style */
+
+.timer-container {
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.timer {
+    text-align: center;
+    margin: 0 auto;
+    font-family: monospace;
+    span {
+        font-size: clamp(1rem, 10svh, 6rem);
+        line-height: 1;
+        max-width: 100%;
+        display: inline-block;
+    }
+}
+
+/* End Timer Page Style */
+
+/* Footer style */
+
+.index-footer {
+    text-align: end;
+}
+
+.main-footer {
+    text-align: center;
+    background: black;
+    padding: 20px;
+}
+
+/* End footer style */
+
+
+/* Common Styles */
+.intro {
+    text-align: center;
+    padding: 2vh 0 2vh 0;
+}
+
+.message {
+    text-align: center;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+main {
+    flex: 1;
+}

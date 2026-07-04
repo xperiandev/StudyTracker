@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block main %}
+   <div class="welcome">
+        <p class="welcome-text">
+            Hello, World!
+        </p>
+    </div>
+    <!-- Icons from Lucide: https://lucide.dev -->
+    <div class="block-flex">
+        <a href="/tasks" class="link-block">
+            <div class="block tasks-text">
+                <p>Tasks <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right-icon lucide-arrow-up-right"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></p>
+            </div>
+        </a>
+        <a href="/logs" class="link-block">
+            <div class="block logs-text">
+                <p>Logs <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right-icon lucide-arrow-up-right"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></p>
+            </div>
+        </a>
+        <a href="/timer" class="link-block">
+            <div class="block timer-text">
+                <p>Timer <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right-icon lucide-arrow-up-right"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></p>
+            </div>
+        </a>
+    </div>
+{% endblock %}
